@@ -35,4 +35,9 @@ $ npm run start
 $ npm run start:dev
 ```
 
+## Swagger
+
+```
+http://localhost:3000/swagger/
+```
 

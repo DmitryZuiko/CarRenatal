@@ -1,14 +1,22 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { CreateBookingHttpDto } from './dto/create-booking-http.dto';
 import { BookingsService } from './bookings.service';
-import { ApiBody } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ResponseBookingDto } from './dto/response-booking.dto';
 
+@ApiTags('bookings')
 @Controller('bookings')
 export class BookingsController {
   constructor(private readonly bookingsService: BookingsService) {}
 
   @HttpCode(HttpStatus.CREATED)
   @ApiBody({ type: CreateBookingHttpDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Statistics for each car for month',
+    type: ResponseBookingDto
+  })
+  @ApiResponse({ status: 400, description: 'Bad request' })
   @Post()
   createBooking(@Body() bookingDto: CreateBookingHttpDto) {
     return this.bookingsService.createBooking({

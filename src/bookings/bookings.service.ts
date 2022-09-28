@@ -63,7 +63,7 @@ export class BookingsService {
     if (bookingsForMonth.length === 0)
       throw new HttpException(
         { error: `There are no bookings for this period` },
-        400,
+        404,
       );
 
     const periods = bookingsForMonth.map((item) => {
@@ -110,9 +110,9 @@ export class BookingsService {
 
     if (bookingsForMonth.length === 0)
       return new HttpException(
-        { message: `There are no bookings for this period`, code: 400 },
-        400,
-      );
+        { error: `There are no bookings for this period`, code: 404 },
+        404,
+      ).getResponse();
 
     const result = _.chain(bookingsForMonth)
       .groupBy('carid')
