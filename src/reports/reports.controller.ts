@@ -29,7 +29,7 @@ export class ReportsController {
   @ApiQuery({ name: 'month' })
   @ApiResponse({
     status: 200,
-    description: 'Statistics for each car for month',
+    description: 'Statistics for all car for month',
     type: ResponseAllReportsDto
   })
   @ApiResponse({ status: 404, description: 'There are no bookings for this period', })

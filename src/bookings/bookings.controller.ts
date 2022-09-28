@@ -13,7 +13,7 @@ export class BookingsController {
   @ApiBody({ type: CreateBookingHttpDto })
   @ApiResponse({
     status: 200,
-    description: 'Statistics for each car for month',
+    description: 'Create new booking',
     type: ResponseBookingDto
   })
   @ApiResponse({ status: 400, description: 'Bad request' })
