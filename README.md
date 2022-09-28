@@ -4,7 +4,7 @@
 
 1.Install from github:
 ```bash
-$ 
+$ gh repo clone DmitryZuiko/CarRenatal
 ```
 2.Change configuration in db.ts file on yours; 
 
